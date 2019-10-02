@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
 import cors from 'cors'
 import { json, urlencoded } from 'body-parser'
 import morgan from 'morgan'
@@ -12,12 +12,21 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-app.get('/', (req: Request, res: Response) =>
+app.get('/', (req, res) =>
   res.json({
     message: 'hello'
   })
 )
 
-app.listen(3000, () => {
-  console.log('running on port 3000')
-})
+export const start = () =>
+  new Promise((resolve, reject) => {
+    try {
+      app.listen(3000, () => {
+        console.log('Started on port 3000')
+        resolve()
+      })
+    } catch (err) {
+      console.error(`Starting app error: ${err}`)
+      reject(err)
+    }
+  })
