@@ -6,13 +6,11 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "outDir": "dist",
     "lib": ["es2015"]
   },
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
   "include": ["src/**/*.ts"]
 }
