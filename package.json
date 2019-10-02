@@ -6,7 +6,11 @@
   "scripts": {
     "start": "ts-node-dev -r dotenv/config src/index.ts",
     "build": "tsc && node dist/index.js",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
+    "db:sync": "npm run typeorm schema:sync",
+    "db:drop": "npm run typeorm schema:drop",
+    "db:reset": "npm run typeorm:drop && npm run typeorm:sync"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +40,7 @@
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
     "ts-node-dev": "^1.0.0-pre.43",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.6.3"
   }
 }

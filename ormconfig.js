@@ -1,4 +1,5 @@
-import config from './src/config'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { default: config } = require('./src/config')
 
 module.exports = {
   type: 'mysql',
@@ -7,7 +8,6 @@ module.exports = {
   username: config.dbUsername,
   password: config.dbPassword,
   database: config.dbDatabase,
-  synchronize: true,
   logging: false,
   entities: ['src/entities/**/*.ts'],
   migrations: ['src/migrations/**/*.ts'],
