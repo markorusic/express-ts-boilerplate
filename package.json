@@ -10,7 +10,7 @@
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
     "db:sync": "npm run typeorm schema:sync",
     "db:drop": "npm run typeorm schema:drop",
-    "db:reset": "npm run typeorm:drop && npm run typeorm:sync"
+    "db:reset": "npm run db:drop && npm run db:sync"
   },
   "keywords": [],
   "author": "",
