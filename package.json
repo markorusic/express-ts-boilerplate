@@ -2,10 +2,10 @@
   "name": "express-ts-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "ts-node-dev src/server.ts",
-    "build": "tsc && node dist/server.js",
+    "start": "ts-node-dev src/app.ts",
+    "build": "tsc && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
