@@ -1,4 +1,5 @@
 import defaults from 'lodash/defaults'
+import omit from 'lodash/omit'
 import { getRepository } from 'typeorm'
 import { Request, Response, Router } from 'express'
 
@@ -22,7 +23,7 @@ export const createController = (entity: any) => {
           .status(400)
           .json({ message: 'id is required for this action' })
       }
-      const { id: _, ...body } = req.body
+      const body = omit(req.body, 'id')
       const updateResult = await repository.update(id, body)
       return res.json(updateResult)
     } catch (err) {
@@ -120,7 +121,7 @@ export const createRouter = (
     .get(controller.findPage)
     .post(controller.create)
 
-  router.get(`${baseUrl}/findAll`, controller.findAll)
+  router.get(`${baseUrl}/find-all`, controller.findAll)
 
   router
     .route(`${baseUrl}/:id`)
